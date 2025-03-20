@@ -3,7 +3,8 @@ import { useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import { FcGoogle } from 'react-icons/fc';
 import { BsApple } from 'react-icons/bs';
-import styles from '../styles/SignupModal.module.css';
+import { Modal, Form, Button } from 'react-bootstrap';
+import styles from './SignupModal.module.css';
 
 interface SignupModalProps {
     show: boolean;

@@ -1,0 +1,222 @@
+.tutorListSection {
+    padding: 80px 0;
+    background-color: #f8f9fa;
+}
+
+.sectionTitle {
+    font-size: 32px;
+    font-weight: 700;
+    color: #333;
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+.sectionSubtitle {
+    font-size: 18px;
+    color: #666;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.tutorCard {
+    border: none;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+}
+
+.tutorCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.imageWrapper {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+}
+
+.tutorImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.tutorName {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 4px;
+}
+
+.tutorSubject {
+    font-size: 14px;
+    color: #FF5E5B;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+.tutorRating {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+}
+
+.starFilled {
+    color: #FFD700;
+    margin-right: 2px;
+}
+
+.star {
+    color: #e0e0e0;
+    margin-right: 2px;
+}
+
+.ratingText {
+    font-size: 14px;
+    color: #666;
+    margin-left: 8px;
+}
+
+.tutorExperience {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 8px;
+}
+
+.tutorPrice {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 0;
+}
+
+/* Pagination Styles */
+.paginationContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.paginationButtonWrapper {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.paginationButtonPlaceholder {
+    width: 48px;
+    height: 48px;
+    visibility: hidden;
+}
+
+.paginationButton {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: white;
+    border: 1px solid #e0e0e0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 20px;
+    color: #333;
+}
+
+.paginationButton:hover {
+    background-color: #FF5E5B;
+    color: white;
+    border-color: #FF5E5B;
+}
+
+.paginationButton:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background-color: #f0f0f0;
+}
+
+.paginationButton:disabled:hover {
+    background-color: #f0f0f0;
+    color: #333;
+    border-color: #e0e0e0;
+}
+
+.paginationInfo {
+    font-size: 16px;
+    color: #666;
+    font-weight: 500;
+    min-width: 100px;
+    text-align: center;
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+    .tutorListSection {
+        padding: 60px 0;
+    }
+
+    .sectionTitle {
+        font-size: 28px;
+    }
+
+    .sectionSubtitle {
+        font-size: 16px;
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .tutorListSection {
+        padding: 40px 0;
+    }
+
+    .sectionTitle {
+        font-size: 24px;
+    }
+
+    .imageWrapper {
+        height: 180px;
+    }
+
+    .paginationButton {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+    }
+
+    .paginationButtonWrapper {
+        width: 40px;
+        height: 40px;
+    }
+
+    .paginationButtonPlaceholder {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+@media (max-width: 576px) {
+    .tutorCard {
+        max-width: 320px;
+        margin: 0 auto;
+    }
+
+    .imageWrapper {
+        height: 220px;
+    }
+
+    .paginationInfo {
+        font-size: 14px;
+        min-width: 80px;
+    }
+}

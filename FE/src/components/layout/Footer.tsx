@@ -2,7 +2,7 @@
 import { Container, Row, Col } from 'react-bootstrap';
 import { FaFacebook, FaInstagram } from 'react-icons/fa';
 import Link from 'next/link';
-import styles from '../styles/Footer.module.css';
+import styles from './Footer.module.css';
 
 export default function Footer() {
     return (

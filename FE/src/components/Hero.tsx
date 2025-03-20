@@ -8,9 +8,18 @@ import {
     PiAtomBold,
     PiFlaskBold
 } from 'react-icons/pi';
-import styles from '../styles/Hero.module.css';
+import { useState, useEffect } from 'react';
+import styles from './Hero.module.css';
+
+import Image from 'next/image';
 
 export default function Hero() {
+    const [isClient, setIsClient] = useState(false);
+
+    useEffect(() => {
+        setIsClient(true);
+    }, []);
+
     return (
         <div className={styles.hero}>
             <Container>
@@ -21,29 +30,31 @@ export default function Hero() {
                     </h1>
 
                     {/* Search Form */}
-                    <div className={styles.searchSection}>
-                        <Form className={styles.searchForm}>
-                            <div className={styles.inputGroup}>
-                                <div className={styles.searchInput}>
-                                    <BsSearch className={styles.inputIcon} />
-                                    <Form.Control
-                                        type="text"
-                                        placeholder="Thử tìm 'Toán'"
-                                    />
+                    {isClient && (
+                        <div className={styles.searchSection}>
+                            <Form className={styles.searchForm}>
+                                <div className={styles.inputGroup}>
+                                    <div className={styles.searchInput}>
+                                        <BsSearch className={styles.inputIcon} />
+                                        <Form.Control
+                                            type="text"
+                                            placeholder="Thử tìm 'Toán'"
+                                        />
+                                    </div>
+                                    <div className={styles.locationInput}>
+                                        <BsGeoAlt className={styles.inputIcon} />
+                                        <Form.Control
+                                            type="text"
+                                            placeholder="Địa điểm học"
+                                        />
+                                    </div>
+                                    <Button variant="danger" className={styles.searchButton}>
+                                        Tìm kiếm
+                                    </Button>
                                 </div>
-                                <div className={styles.locationInput}>
-                                    <BsGeoAlt className={styles.inputIcon} />
-                                    <Form.Control
-                                        type="text"
-                                        placeholder="Địa điểm học"
-                                    />
-                                </div>
-                                <Button variant="danger" className={styles.searchButton}>
-                                    Tìm kiếm
-                                </Button>
-                            </div>
-                        </Form>
-                    </div>
+                            </Form>
+                        </div>
+                    )}
 
                     {/* Popular Subjects */}
                     <div className={styles.popularSubjects}>

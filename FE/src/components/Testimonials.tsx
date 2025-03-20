@@ -3,7 +3,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 import Image from 'next/image';
-import styles from '../styles/Testimonials.module.css';
+import styles from './Testimonials.module.css';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';

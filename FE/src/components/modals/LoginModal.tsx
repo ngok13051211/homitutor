@@ -3,15 +3,17 @@ import { useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import { FcGoogle } from 'react-icons/fc';
 import { BsApple } from 'react-icons/bs';
-import styles from '../styles/LoginModal.module.css';
+import { Modal, Form, Button } from 'react-bootstrap';
+import styles from './LoginModal.module.css';
 
 interface LoginModalProps {
     show: boolean;
     onHide: () => void;
     onShowSignup: () => void;
+    onLogin?: () => void;
 }
 
-export default function LoginModal({ show, onHide, onShowSignup }: LoginModalProps) {
+export default function LoginModal({ show, onHide, onShowSignup, onLogin }: LoginModalProps) {
     const modalRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
@@ -35,6 +37,11 @@ export default function LoginModal({ show, onHide, onShowSignup }: LoginModalPro
         onShowSignup();
     };
 
+    const handleLogin = (e: React.FormEvent) => {
+        e.preventDefault();
+        if (onLogin) onLogin();
+    };
+
     if (!show) return null;
 
     return createPortal(
@@ -50,7 +57,7 @@ export default function LoginModal({ show, onHide, onShowSignup }: LoginModalPro
                 </div>
 
                 <div className={styles.modalBody}>
-                    <form onSubmit={e => e.preventDefault()}>
+                    <form onSubmit={handleLogin}>
                         <div className={styles.inputGroup}>
                             <input
                                 type="email"

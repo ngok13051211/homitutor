@@ -1,7 +1,8 @@
 'use client'
 import { Container, Row, Col, Button } from 'react-bootstrap';
-import styles from '../styles/BecomeTutor.module.css';
+import styles from './BecomeTutor.module.css';
 import { BsCheckCircle, BsArrowRight } from 'react-icons/bs';
+import { useRouter } from 'next/navigation';
 
 const benefits = [
     {
@@ -31,6 +32,12 @@ const benefits = [
 ];
 
 export default function BecomeTutor() {
+    const router = useRouter();
+
+    const handleRegisterClick = () => {
+        router.push('/become-tutor');
+    };
+
     return (
         <section className={styles.becomeTutorSection}>
             <Container>
@@ -51,7 +58,11 @@ export default function BecomeTutor() {
                                     </div>
                                 ))}
                             </div>
-                            <Button className={styles.registerButton}>
+                            <Button
+                                className={styles.registerButton}
+                                onClick={handleRegisterClick}
+                                variant="danger"
+                            >
                                 Đăng ký ngay
                                 <BsArrowRight className={styles.arrowIcon} />
                             </Button>
