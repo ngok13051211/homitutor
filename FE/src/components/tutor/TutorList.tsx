@@ -2,7 +2,7 @@
 import { Container, Row, Col, Card, Pagination } from 'react-bootstrap';
 import Image from 'next/image';
 import styles from './TutorList.module.css';
-import { BsStar, BsStarFill, BsChevronLeft, BsChevronRight } from 'react-icons/bs';
+import { BsStar, BsStarFill, BsChevronLeft, BsChevronRight, BsHeart } from 'react-icons/bs';
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 
@@ -15,6 +15,8 @@ interface Tutor {
     price: number;
     image: string;
     experience: string;
+    description: string;
+    location: string;
 }
 
 const tutors: Tutor[] = [
@@ -26,7 +28,9 @@ const tutors: Tutor[] = [
         reviews: 128,
         price: 200000,
         image: "https://images.unsplash.com/photo-1544717305-2782549b5136?w=400&h=400&fit=crop",
-        experience: "5 năm kinh nghiệm"
+        experience: "5 năm kinh nghiệm",
+        description: "Giáo viên có 5 năm kinh nghiệm giảng dạy, chuyên môn sâu về Toán học",
+        location: "Hà Nội (trực tiếp & online)"
     },
     {
         id: 2,
@@ -36,7 +40,9 @@ const tutors: Tutor[] = [
         reviews: 95,
         price: 180000,
         image: "https://images.unsplash.com/photo-1580894732444-8ecded7900cd?w=400&h=400&fit=crop",
-        experience: "4 năm kinh nghiệm"
+        experience: "4 năm kinh nghiệm",
+        description: "Thạc sĩ Tiếng Anh, 4 năm kinh nghiệm giảng dạy các lớp học sinh cấp 2, 3",
+        location: "TP.HCM (online)"
     },
     {
         id: 3,
@@ -46,7 +52,9 @@ const tutors: Tutor[] = [
         reviews: 156,
         price: 220000,
         image: "https://images.unsplash.com/photo-1548142813-c348350df52b?w=400&h=400&fit=crop",
-        experience: "6 năm kinh nghiệm"
+        experience: "6 năm kinh nghiệm",
+        description: "Giảng viên khoa Vật lý, 6 năm kinh nghiệm luyện thi đại học",
+        location: "Đà Nẵng (trực tiếp)"
     },
     {
         id: 4,
@@ -56,7 +64,9 @@ const tutors: Tutor[] = [
         reviews: 89,
         price: 190000,
         image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop",
-        experience: "3 năm kinh nghiệm"
+        experience: "3 năm kinh nghiệm",
+        description: "Giáo viên trường chuyên, 3 năm kinh nghiệm giảng dạy Hóa học",
+        location: "Hà Nội (trực tiếp & online)"
     },
     {
         id: 5,
@@ -66,7 +76,9 @@ const tutors: Tutor[] = [
         reviews: 72,
         price: 185000,
         image: "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?w=400&h=400&fit=crop",
-        experience: "4 năm kinh nghiệm"
+        experience: "4 năm kinh nghiệm",
+        description: "Thạc sĩ Sinh học, 4 năm kinh nghiệm giảng dạy tại các trường THPT",
+        location: "TP.HCM (trực tiếp & online)"
     },
     {
         id: 6,
@@ -76,7 +88,9 @@ const tutors: Tutor[] = [
         reviews: 118,
         price: 195000,
         image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop",
-        experience: "7 năm kinh nghiệm"
+        experience: "7 năm kinh nghiệm",
+        description: "Giáo viên dạy Văn giỏi cấp Thành phố, 7 năm kinh nghiệm luyện thi THPT",
+        location: "Hà Nội (trực tiếp)"
     },
     {
         id: 7,
@@ -86,7 +100,9 @@ const tutors: Tutor[] = [
         reviews: 84,
         price: 175000,
         image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
-        experience: "5 năm kinh nghiệm"
+        experience: "5 năm kinh nghiệm",
+        description: "Giảng viên khoa Lịch sử, 5 năm kinh nghiệm giảng dạy tại các trường THPT",
+        location: "TP.HCM (online)"
     },
     {
         id: 8,
@@ -96,7 +112,9 @@ const tutors: Tutor[] = [
         reviews: 65,
         price: 170000,
         image: "https://images.unsplash.com/photo-1548142813-c348350df52b?w=400&h=400&fit=crop",
-        experience: "3 năm kinh nghiệm"
+        experience: "3 năm kinh nghiệm",
+        description: "Giáo viên trường chuyên, 3 năm kinh nghiệm giảng dạy Địa lý",
+        location: "Đà Nẵng (trực tiếp & online)"
     }
 ];
 
@@ -157,30 +175,42 @@ export default function TutorList() {
                             <Card
                                 className={styles.tutorCard}
                                 onClick={() => handleTutorClick(tutor.id)}
-                                style={{ cursor: 'pointer' }}
                             >
                                 <div className={styles.imageWrapper}>
                                     <Image
                                         src={tutor.image}
                                         alt={tutor.name}
-                                        width={300}
-                                        height={300}
+                                        fill
+                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                         className={styles.tutorImage}
+                                        priority
                                     />
+                                    <button
+                                        className={styles.favoriteButton}
+                                        onClick={(e) => {
+                                            e.stopPropagation();
+                                            // Handle favorite click
+                                        }}
+                                        aria-label="Add to favorites"
+                                    >
+                                        <BsHeart />
+                                    </button>
                                 </div>
-                                <Card.Body>
-                                    <h3 className={styles.tutorName}>{tutor.name}</h3>
-                                    <p className={styles.tutorSubject}>{tutor.subject}</p>
-                                    <div className={styles.tutorRating}>
-                                        {renderRating(tutor.rating)}
-                                        <span className={styles.ratingText}>
-                                            {tutor.rating} ({tutor.reviews} đánh giá)
-                                        </span>
+                                <Card.Body className="p-3">
+                                    <div className={styles.tutorInfo}>
+                                        <h3 className={styles.tutorName}>{tutor.name}</h3>
+                                        <p className={styles.tutorLocation}>{tutor.location}</p>
+                                        <div className={styles.tutorRating}>
+                                            {renderRating(tutor.rating)}
+                                            <span className={styles.ratingText}>
+                                                {tutor.rating.toFixed(1)} ({tutor.reviews} đánh giá)
+                                            </span>
+                                        </div>
+                                        <p className={styles.tutorExperience}>{tutor.description}</p>
+                                        <div className={styles.tutorPrice}>
+                                            {isClient ? `${tutor.price.toLocaleString('vi-VN')}đ/giờ` : `${tutor.price}đ/giờ`}
+                                        </div>
                                     </div>
-                                    <p className={styles.tutorExperience}>{tutor.experience}</p>
-                                    <p className={styles.tutorPrice}>
-                                        {isClient ? tutor.price.toLocaleString('vi-VN') : tutor.price}đ/giờ
-                                    </p>
                                 </Card.Body>
                             </Card>
                         </Col>

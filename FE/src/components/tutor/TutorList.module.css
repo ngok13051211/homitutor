@@ -1,162 +1,172 @@
 .tutorListSection {
-    padding: 80px 0;
-    background-color: #f8f9fa;
+    padding: 2rem 0;
 }
 
 .sectionTitle {
-    font-size: 32px;
-    font-weight: 700;
-    color: #333;
+    font-size: 2rem;
+    font-weight: 600;
     text-align: center;
-    margin-bottom: 16px;
+    margin-bottom: 0.5rem;
+    color: #333;
 }
 
 .sectionSubtitle {
-    font-size: 18px;
-    color: #666;
     text-align: center;
-    margin-bottom: 40px;
+    color: #666;
+    margin-bottom: 2rem;
 }
 
 .tutorCard {
-    border: none;
-    border-radius: 16px;
-    overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
     height: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    background: white;
+    border: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .tutorCard:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .imageWrapper {
     position: relative;
-    height: 200px;
-    overflow: hidden;
+    width: 100%;
+    padding-top: 100%;
+    background-color: #f8f9fa;
 }
 
 .tutorImage {
-    width: 100%;
-    height: 100%;
+    position: absolute !important;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
     object-fit: cover;
 }
 
-.tutorName {
-    font-size: 18px;
-    font-weight: 600;
-    color: #333;
-    margin-bottom: 4px;
-}
-
-.tutorSubject {
-    font-size: 14px;
-    color: #FF5E5B;
-    font-weight: 500;
-    margin-bottom: 8px;
-}
-
-.tutorRating {
-    display: flex;
-    align-items: center;
-    margin-bottom: 8px;
-    flex-wrap: wrap;
-}
-
-.starFilled {
-    color: #FFD700;
-    margin-right: 2px;
-}
-
-.star {
-    color: #e0e0e0;
-    margin-right: 2px;
-}
-
-.ratingText {
-    font-size: 14px;
-    color: #666;
-    margin-left: 8px;
-}
-
-.tutorExperience {
-    font-size: 14px;
-    color: #666;
-    margin-bottom: 8px;
-}
-
-.tutorPrice {
-    font-size: 18px;
-    font-weight: 600;
-    color: #333;
-    margin-bottom: 0;
-}
-
-/* Pagination Styles */
-.paginationContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 40px;
-    gap: 16px;
-    flex-wrap: wrap;
-}
-
-.paginationButtonWrapper {
-    width: 48px;
-    height: 48px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.paginationButtonPlaceholder {
-    width: 48px;
-    height: 48px;
-    visibility: hidden;
-}
-
-.paginationButton {
-    width: 48px;
-    height: 48px;
+.favoriteButton {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
     border-radius: 50%;
-    background-color: white;
-    border: 1px solid #e0e0e0;
+    background: white;
+    border: none;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     transition: all 0.2s ease;
-    font-size: 20px;
-    color: #333;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    color: #666;
+    z-index: 2;
 }
 
-.paginationButton:hover {
-    background-color: #FF5E5B;
-    color: white;
-    border-color: #FF5E5B;
+.favoriteButton:hover {
+    transform: scale(1.1);
+    color: #ff4757;
+}
+
+.tutorInfo {
+    padding: 0.5rem;
+}
+
+.tutorName {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 0.25rem;
+    line-height: 1.4;
+}
+
+.tutorLocation {
+    font-size: 0.875rem;
+    color: #666;
+    margin-bottom: 0.5rem;
+}
+
+.tutorRating {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.star,
+.starFilled {
+    color: #ffc107;
+    font-size: 0.875rem;
+}
+
+.ratingText {
+    font-size: 0.875rem;
+    color: #666;
+    margin-left: 0.25rem;
+}
+
+.tutorExperience {
+    font-size: 0.875rem;
+    color: #666;
+    margin-bottom: 0.75rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    line-height: 1.4;
+}
+
+.tutorPrice {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #00a550;
+}
+
+.paginationContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.paginationButtonWrapper {
+    display: flex;
+    align-items: center;
+}
+
+.paginationButton {
+    width: 32px;
+    height: 32px;
+    border: 1px solid #dee2e6;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    color: #666;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.paginationButton:hover:not(:disabled) {
+    background-color: #f8f9fa;
+    border-color: #666;
+    color: #333;
 }
 
 .paginationButton:disabled {
     opacity: 0.5;
     cursor: not-allowed;
-    background-color: #f0f0f0;
-}
-
-.paginationButton:disabled:hover {
-    background-color: #f0f0f0;
-    color: #333;
-    border-color: #e0e0e0;
 }
 
 .paginationInfo {
-    font-size: 16px;
+    font-size: 0.875rem;
     color: #666;
-    font-weight: 500;
-    min-width: 100px;
-    text-align: center;
 }
 
 /* Responsive Styles */

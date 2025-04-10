@@ -1,16 +1,18 @@
 'use client'
+import { useRouter } from 'next/navigation'; // Update import to use App Router
 import { Container, Form, Button } from 'react-bootstrap';
 import { useState } from 'react';
 import styles from './TutorRegistration.module.css';
 import { FaGoogle, FaApple } from 'react-icons/fa';
 
 export default function TutorRegistration() {
+    const router = useRouter();
     const [email, setEmail] = useState('');
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        // Xử lý logic đăng ký ở đây
         console.log('Email submitted:', email);
+        router.push('/tutor/confirmation');
     };
 
     return (
@@ -115,4 +117,4 @@ export default function TutorRegistration() {
             </Container>
         </div>
     );
-} 
+}
