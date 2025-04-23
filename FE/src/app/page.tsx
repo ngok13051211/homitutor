@@ -9,7 +9,8 @@ import BecomeTutor from '@/components/common/BecomeTutor';
 
 export default function Home() {
 
-  const user = useUserWithRole('guest');
+  const user = useUserWithRole('guest'); 
+  
 
   return (
     <main>
@@ -17,12 +18,10 @@ export default function Home() {
 
       <Container className="py-5">
         <section className="mb-5">
-
           <TutorList />
-         
         </section>
 
-    
+        {/* Đăng ký trở thành gia sư - chỉ hiển thị khi chưa đăng nhập hoặc đang là học viên */}
         <RequireRole role={['guest', 'student']} user={user}>
           <section className="mb-5">
             <BecomeTutor />

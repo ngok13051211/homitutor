@@ -235,11 +235,14 @@ export default function Header() {
 
                                     {/* Menu chung cho tất cả người dùng đã đăng nhập */}
                                     <Dropdown.Divider />
-                                    <Dropdown.Item as={Link} href="#" className={styles.dropdownItem}>
+                                    <Dropdown.Item as={Link} href="/messages" className={styles.dropdownItem}>
                                         <BsEnvelope className={styles.dropdownIcon} />
                                         Tin nhắn
                                     </Dropdown.Item>
-                                    <Dropdown.Item as={Link} href="#" className={styles.dropdownItem}>
+                                    <Dropdown.Item 
+                                        onClick={() => router.push('/dashboard')}
+                                        className={styles.dropdownItem}
+                                    >
                                         <BsGear className={styles.dropdownIcon} />
                                         Thiết lập tài khoản
                                     </Dropdown.Item>
