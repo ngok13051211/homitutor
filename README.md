@@ -1,36 +1,36 @@
-# HomiTutor - Smart Tutor Connection Platform
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Introduction
+## Getting Started
 
-HomiTutor is a web platform that connects students and parents with quality tutors. It provides an easy way to find, book, and interact with tutors through an intelligent AI-driven system (future integration). The platform is built with modern web technologies to ensure a smooth and efficient experience for users.
+First, run the development server:
 
-## Technologies Used
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
 
-### **Backend**
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-- **Node.js** - JavaScript runtime environment.
-- **Express.js** - Fast and lightweight web framework.
-- **MongoDB** - NoSQL database for flexible data management.
+You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
 
-### **Frontend**
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-- **React** - Component-based frontend library.
-- **Next.js** - Framework for React with SSR and static generation.
-- **Bootstrap 5** - UI framework for responsive design.
+## Learn More
 
-## Features
+To learn more about Next.js, take a look at the following resources:
 
-- **User authentication** (Students & Tutors)
-- **Tutor search & filtering**
-- **Booking system**
-- **Student & tutor profiles**
-- **Secure payments**
-- **Chat & messaging (future)**
-- **AI-powered tutor recommendations (future)**
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-## Future Improvements
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-- **AI-powered tutor matching system**
-- **Real-time chat functionality**
-- **Lesson scheduling & reminders**
-- **Tutor performance analytics**
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
